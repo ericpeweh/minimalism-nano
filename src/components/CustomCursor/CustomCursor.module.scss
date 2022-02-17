@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+
+.cursor {
+	width: 8rem;
+	height: 8rem;
+	border-radius: 50%;
+	border: 2px solid $black-3;
+	position: fixed;
+	z-index: 100000000;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition-property: background, transform;
+	backdrop-filter: grayscale(40%);
+	transform-origin: 50% 50%;
+
+	@media (max-width: 750px) {
+		visibility: hidden !important;
+	}
+}

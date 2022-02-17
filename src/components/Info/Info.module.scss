@@ -1,0 +1,283 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg) scale(0) translateX(2rem);
+		opacity: 0;
+	}
+
+	50% {
+		transform: rotate(180deg) scale(1.4) translateX(5rem);
+		opacity: 0.2;
+	}
+
+	100% {
+		transform: rotate(-180%) scale(1) translateX(0);
+		opacity: 1;
+	}
+}
+
+.info {
+	height: 165vh;
+	width: 100%;
+	background: rgb(205, 205, 205);
+	background: linear-gradient(
+		24deg,
+		rgba(205, 205, 205, 1) 0%,
+		rgba(221, 221, 221, 1) 66%,
+		rgba(184, 184, 184, 1) 100%
+	);
+	position: relative;
+
+	@media (max-width: 760px) {
+		overflow: hidden;
+	}
+
+	.infoContainer {
+		height: 100%;
+		padding: 5rem;
+		padding-top: 18rem;
+		padding-bottom: 10rem;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+
+		@media (max-width: 760px) {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		.subtitle {
+			font-size: $font-md;
+			margin-left: 5rem;
+
+			@media (max-width: 760px) {
+				font-size: $font-md - 0.5rem;
+			}
+		}
+
+		.infoTitle {
+			font-size: $font-xl;
+			margin-left: 5rem;
+			color: $black-2;
+			position: relative;
+			z-index: 5;
+
+			@media (max-width: 760px) {
+				font-size: $font-xl - 3rem;
+				margin-left: 0;
+			}
+
+			&::after {
+				background: rgb(0, 0, 0);
+				background: linear-gradient(
+					140deg,
+					rgba($gray-2, 1) 0%,
+					rgba($gray-2, 1) 80%,
+					rgba(158, 158, 158, 0) 80%
+				);
+				content: "";
+				position: absolute;
+				left: -3rem;
+				top: -2.5rem;
+				width: 9rem;
+				height: 9rem;
+				z-index: -1;
+				@include clipCenterBottomRight;
+				border-radius: 5px;
+				animation: rotate 1s;
+			}
+
+			&::before {
+				content: "minimalism = freedom";
+				position: absolute;
+				top: 55%;
+				left: 50.5%;
+				width: 100%;
+				transform: translate(-50%, -50%);
+				color: rgba($black-1, 0.2);
+				z-index: 4;
+				transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			}
+		}
+
+		.imageContainer {
+			position: relative;
+			height: 100%;
+
+			.circle1 {
+				width: 15rem;
+				height: 15rem;
+				background-color: $gray-3;
+				border-radius: 50%;
+				position: absolute;
+				left: 80%;
+				top: 10%;
+				outline: 5px solid $gray-2;
+				outline-offset: 1rem;
+			}
+
+			.circle2 {
+				width: 40rem;
+				height: 40rem;
+				background-color: $gray-3;
+				border-radius: 50%;
+				position: absolute;
+				left: -20%;
+				top: 20%;
+				outline: 5px solid $gray-2;
+				outline-offset: 5rem;
+			}
+
+			.circle3 {
+				width: 25rem;
+				height: 25rem;
+				background-color: $gray-2;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				top: 60%;
+				outline: 5px solid $gray-2;
+				outline-offset: 2rem;
+			}
+
+			.infoImage1 {
+				height: 600px;
+				position: absolute;
+				left: 3rem;
+				top: 5rem;
+				border-radius: 5px;
+				z-index: 50;
+				@include clipBottomRight;
+				display: block;
+				outline: 5px red;
+			}
+
+			.infoImage2 {
+				height: 350px;
+				position: absolute;
+				right: 3rem;
+				top: 12rem;
+				border-radius: 5px;
+				@include clipTopLeft;
+				z-index: 50;
+				display: block;
+			}
+
+			.infoImage3 {
+				height: 450px;
+				position: absolute;
+				top: 20rem;
+				left: 35%;
+				border-radius: 5px;
+				@include clipBottomRight;
+				z-index: 40;
+				transform: rotate(90deg);
+				display: block;
+			}
+
+			@media (max-width: 1280px) {
+				.infoImage1 {
+					height: 500px;
+				}
+
+				.infoImage2 {
+					height: 280px;
+				}
+
+				.infoImage3 {
+					height: 400px;
+				}
+			}
+			@media (max-width: 1280px) {
+				.infoImage1 {
+					height: 500px;
+				}
+
+				.infoImage2 {
+					height: 280px;
+				}
+
+				.infoImage3 {
+					height: 400px;
+				}
+			}
+
+			@media (max-width: 960px) {
+				.infoImage1 {
+					height: 400px;
+				}
+
+				.infoImage2 {
+					height: 230px;
+				}
+
+				.infoImage3 {
+					height: 320px;
+				}
+			}
+
+			@media (max-width: 760px) {
+				.infoImage1 {
+					height: 400px;
+					left: -10%;
+				}
+
+				.infoImage2 {
+					height: 250px;
+					right: -15%;
+				}
+
+				.infoImage3 {
+					height: 400px;
+					top: 70%;
+					left: auto;
+					right: -9%;
+				}
+			}
+		}
+
+		.quotes {
+			text-transform: uppercase;
+			position: relative;
+			font-size: $font-xl;
+			color: transparent;
+			z-index: 100;
+			font-family: $font-secondary;
+			transform: translate(3rem, -3rem);
+			-webkit-text-stroke: 5px $gray-3;
+
+			@media (max-width: 760px) {
+				font-size: $font-xl - 3rem !important;
+				width: 100%;
+				-webkit-text-stroke: 3px $black-1;
+			}
+
+			.quotesAuthor {
+				z-index: 100;
+				font-size: 2rem;
+				position: absolute;
+				right: 5rem;
+				bottom: -2rem;
+				-webkit-text-stroke: 0px;
+				color: $black-1;
+
+				@media (max-width: 760px) {
+					font-size: 1.5rem;
+					color: $gray-1 !important;
+				}
+			}
+		}
+
+		@media (max-width: 1280px) {
+			.quotes {
+				font-size: $font-xl - 1.5rem;
+
+				.quotesAuthor {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}
