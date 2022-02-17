@@ -26,11 +26,11 @@ const LoadingScreen = () => {
 			delay: 2,
 			duration: 1,
 			ease: "Power2.easeOut",
-			backgroundColor: "#161414"
+			backgroundColor: "#333333"
 		});
 
 		gsapSC.to(pRef.current, {
-			border: "2px solid #161414",
+			border: "2px solid #333333",
 			delay: 1
 		});
 
