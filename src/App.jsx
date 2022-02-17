@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
@@ -54,6 +54,10 @@ ScrollTrigger.defaults({ scroller: scroller });
 const App = () => {
 	useGLTF.preload("/models/house/house.glb", true);
 	const scrollerRef = useRef(null);
+
+	useEffect(() => {
+		ScrollTrigger.refresh();
+	}, []);
 
 	return (
 		<div ref={scrollerRef}>
